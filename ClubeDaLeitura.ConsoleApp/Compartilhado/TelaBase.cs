@@ -29,8 +29,10 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (tipoEntidade == "Empréstimo")
             {
-                Console.WriteLine($"5 - Devilver revista");
+                Console.WriteLine($"5 - Devolver revista");
                 Console.WriteLine($"6 - Visualizar {tipoEntidade}s em aberto");
+                Console.WriteLine($"7 - Visualizar amigos com multas em aberto");
+                Console.WriteLine($"8 - Quitar multas");
             }
 
             Console.WriteLine("S - Voltar");

@@ -131,17 +131,22 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             );
 
             ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
+            
 
-            foreach (Emprestimo emprestimo in emprestimosCadastrados)
-            {
-                if (emprestimo.DataDevolucao < DateTime.Now)
+                foreach (Emprestimo emprestimo in emprestimosCadastrados)
                 {
-                    if (emprestimo == null)
-                        continue;
-                    Console.WriteLine(
-                        "| {0, -20} | {1, -15} | {2, -20} | {3, -30} | {4, -15} |",
-                        emprestimo.Id, emprestimo.Amigo.Id, emprestimo.Amigo.Nome, emprestimo.DataDevolucao.ToShortDateString(), DateTime.Now.ToShortDateString()
-                    );
+                    foreach (var multa in emprestimo.Amigo.Multas)
+                    {
+                        Multa multa1 = (Multa)multa;
+                        if (!multa1.EstaPaga)
+                        {
+                        if (emprestimo == null)
+                            continue;
+                        Console.WriteLine(
+                            "| {0, -20} | {1, -15} | {2, -20} | {3, -30} | {4, -15} |",
+                            emprestimo.Id, emprestimo.Amigo.Id, emprestimo.Amigo.Nome, emprestimo.DataDevolucao.ToShortDateString(), DateTime.Now.ToShortDateString()
+                        );
+                    }
                 }
             }
 
@@ -168,18 +173,18 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             VisualizarAmigosComMultas();
 
             Console.Write("Qual o Id do amigo que deseja quitar a multa? ");
-            int amigoQueDesejaQuitarAMulta = Convert.ToInt32(Console.ReadLine());
+            int IdAmigoMulta = Convert.ToInt32(Console.ReadLine());
 
-            Amigo a = (Amigo)repositorio.SelecionarPorId(amigoQueDesejaQuitarAMulta);
+            Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarPorId(IdAmigoMulta);
 
-            foreach (var multa in a.Multas)
+            foreach (var multa in amigoSelecionado.Multas)
             {
-                Multa m = (Multa)multa;
+                Multa multa1 = (Multa)multa;
 
-                if (!m.EstaPaga)
+                if (!multa1.EstaPaga)
                 {
-                    m.EstaPaga = true;
-                    ExibirMensagem("Multa quitada com sucesso!", ConsoleColor.Green);
+                    multa1.EstaPaga = true;
+                    Console.WriteLine("Multa quitada com sucesso!");
                 }
             }
 
