@@ -28,13 +28,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
         public void GerarMultas(Emprestimo emprestimos)
         {
-            DateTime dataHoje = DateTime.Now;
+            if (emprestimos.DataDevolucao < DateTime.Now)
+            {
+                DateTime dataHoje = DateTime.Now;
 
-            TimeSpan diferenca = dataHoje - emprestimos.DataDevolucao;
+                TimeSpan diferenca = dataHoje - emprestimos.DataDevolucao;
 
-            decimal valor = diferenca.Days * 5;
+                decimal valor = diferenca.Days * 5;
 
-            Multas.Add(new Multa(false, valor));
+                Multas.Add(new Multa(false, valor));
+            }
+          
         }
 
         public override void AtualizarRegistro(EntidadeBase novoegistro)

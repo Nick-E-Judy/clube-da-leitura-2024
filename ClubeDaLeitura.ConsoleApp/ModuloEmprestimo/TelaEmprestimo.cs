@@ -123,13 +123,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             );
 
             ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
-
             if (emprestimosCadastrados.Count == 0)
             {
                 ExibirMensagem("Não há empréstimos com multas em aberto!", ConsoleColor.Red);
             }
             else
             {
+
                 foreach (Emprestimo emprestimo in emprestimosCadastrados)
                 {
                     foreach (var multa in emprestimo.Amigo.Multas)
@@ -146,6 +146,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                          );
                         }
                     }
+
                 }
             }
             Console.ReadLine();
@@ -172,7 +173,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 return;
 
             emprestimoSelecionado.Concluido = true;
-            emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
+
+         
+                emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
+            
+            
 
         }
 
