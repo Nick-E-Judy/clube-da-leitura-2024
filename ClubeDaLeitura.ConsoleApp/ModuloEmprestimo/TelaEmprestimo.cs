@@ -114,7 +114,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                         emprestimo.Status
                     );
                 }
-
+                if (emprestimo.Amigo.GerarMultas(emprestimo))
+                {
+                    Console.WriteLine($"O amigo {emprestimo.Amigo.Nome} tem uma multa.");
+                }
             }
 
             Console.ReadLine();
@@ -129,11 +132,39 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             Emprestimo emprestimoSelecionado = (Emprestimo)repositorioEmprestimo.SelecionarPorId(idEmprestimo);
 
-            if(emprestimoSelecionado.Id == idEmprestimo)
+            if(emprestimoSelecionado.Id == idEmprestimo )
             {
                 Revista revistaSelecionada = emprestimoSelecionado.Revista;
                 emprestimoSelecionado.Status = true;
             }
+        }
+
+        public void VizualizarAmigosComMultas()
+        {
+            Console.WriteLine();
+
+            Console.WriteLine(
+                "| {0, -20} | {1, -15} | {2, -20} | {3, -30} | {4, -15} |",
+                "Id do Empréstimo", "Id do amigo", "Nome do amigo", "Data de devolução prevista", "Data atual"
+            );
+
+            ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
+
+            foreach (Emprestimo emprestimo in emprestimosCadastrados)
+            {
+                if (emprestimo.DataDevolucao < DateTime.Now)
+                {
+                    if (emprestimo == null)
+                        continue;
+                    Console.WriteLine(
+                        "| {0, -20} | {1, -15} | {2, -20} | {3, -30} | {4, -15} |",
+                        emprestimo.Id, emprestimo.Amigo.Id, emprestimo.Amigo.Nome, emprestimo.DataDevolucao.ToShortDateString(), DateTime.Now.ToShortDateString()
+                    );
+                }
+            }
+
+            Console.ReadLine();
+            Console.WriteLine();
         }
 
         protected override EntidadeBase ObterRegistro()

@@ -2,6 +2,7 @@
 using ClubeDaLeitura.ConsoleApp.ModuloMulta;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Collections;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
@@ -23,8 +24,19 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
         public string Endereco { get; set; }
 
-        public Multa[] HistoricoMultas { get; set; }
+        public bool Multa { get; set; }
 
+        public bool GerarMultas(Emprestimo emprestimos)
+        {
+            if (emprestimos.DataDevolucao < DateTime.Now)
+            {
+                return Multa = true;
+            }
+            else
+            {
+                return Multa = false;
+            }
+        }
         public override void AtualizarRegistro(EntidadeBase novoegistro)
         {
             throw new NotImplementedException();

@@ -4,6 +4,7 @@ using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloReserva;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
+using ClubeDaLeitura.ConsoleApp.ModuloMulta;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -17,14 +18,20 @@ namespace ClubeDaLeitura.ConsoleApp
             telaAmigo.repositorio = repositorioAmigo;
             telaAmigo.CadastrarEntidadeTeste();
 
+            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
+            telaEmprestimo.tipoEntidade = "Empréstimo";
+            telaEmprestimo.repositorio = repositorioEmprestimo;
+
+            telaEmprestimo.telaAmigo = telaAmigo;
+            telaEmprestimo.repositorioAmigo = repositorioAmigo;
+
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             repositorioCaixa.Cadastrar(new Caixa("Verde", "abc-123", 12));
 
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
-
-
 
             RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaRevista telaRevista = new TelaRevista();
@@ -49,22 +56,15 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaReserva.telaRevista = telaRevista;
             telaReserva.repositorioRevista = repositorioRevista;
-
-            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
-            TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
-            telaEmprestimo.tipoEntidade = "Empréstimo";
-            telaEmprestimo.repositorio = repositorioEmprestimo;
-
-            telaEmprestimo.telaAmigo = telaAmigo;
-            telaEmprestimo.repositorioAmigo = repositorioAmigo;
             
             telaEmprestimo.telaRevista = telaRevista;
             telaEmprestimo.repositorioRevista = repositorioRevista;
             telaEmprestimo.repositorioEmprestimo = repositorioEmprestimo;
 
-            
+
             while (true)
             {
+                
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
 
                 if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
@@ -107,11 +107,14 @@ namespace ClubeDaLeitura.ConsoleApp
                 else if (operacaoEscolhida == '4')
                     tela.VisualizarRegistros(true);
 
-                else if (operacaoEscolhida == '5')
+                else if (tela == telaEmprestimo && operacaoEscolhida == '5')
                     telaEmprestimo.DevolverRevista();
 
-                else if (operacaoEscolhida == '6')
+                else if (tela == telaEmprestimo && operacaoEscolhida == '6')
                     telaEmprestimo.VisualizarEmprestimosAbertos(true);
+
+                else if (tela == telaEmprestimo && operacaoEscolhida == '7')
+                    telaEmprestimo.VizualizarAmigosComMultas();
             }
             Console.ReadLine();
         }

@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
@@ -17,8 +18,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             Console.WriteLine();
 
             Console.WriteLine(
-                "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25} | {5, -15}",
-                "Id", "Nome", "Nome do Responsável", "Telefone", "Endereço", "Multas"
+                "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25} |",
+                "Id", "Nome", "Nome do Responsável", "Telefone", "Endereço"
             );
 
             ArrayList amigosCadastrados = repositorio.SelecionarTodos();
@@ -29,8 +30,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
                     continue;
 
                 Console.WriteLine(
-                    "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25} | {5, -15}",
-                    amigo.Id, amigo.Nome, amigo.NomeResponsavel, amigo.Telefone, amigo.Endereco, amigo.HistoricoMultas
+                    "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25} |",
+                    amigo.Id, amigo.Nome, amigo.NomeResponsavel, amigo.Telefone, amigo.Endereco
                 );
             }
 
