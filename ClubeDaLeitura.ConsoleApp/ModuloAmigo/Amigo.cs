@@ -1,4 +1,6 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloMulta;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloMulta;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
@@ -14,9 +16,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
         public Multa[] HistoricoMultas { get; set; }
 
-        public void Validar()
+        public Amigo(string nome, string nomeResponsavel, string telefone, string endereco, Multa[] historicoMultas)
         {
-
+            Nome = nome;
+            NomeResponsavel = nomeResponsavel;
+            Telefone = telefone;
+            Endereco = endereco;
+            HistoricoMultas = historicoMultas;
         }
     }
 }

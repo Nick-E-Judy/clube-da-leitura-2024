@@ -3,7 +3,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
 {
-    public class Reserva
+    internal class Reserva 
     {
         private DateTime dataAbertura;
 
