@@ -6,37 +6,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
     {
         public string Nome { get; set; }
 
-        public string NomeResponsavel
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string NomeResponsavel { get; set; }
 
-        public string Telefone
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Telefone { get; set; }
 
-        public string Endereco
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Endereco { get; set; }
 
-        public Multa[] HistoricoMultas
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Multa[] HistoricoMultas { get; set; }
 
         public void Validar()
         {

@@ -2,28 +2,10 @@
 {
     public class Multa
     {
-        public decimal Valor
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public decimal Valor { get; set; }
 
-        public DateTime Data
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public DateTime Data { get; set; }
 
-        public bool EstaPaga
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public bool EstaPaga { get; set; }
     }
 }

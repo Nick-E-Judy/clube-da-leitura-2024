@@ -56,19 +56,10 @@
   </Class>
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloRevista.Revista">
     <Position X="5.75" Y="5.5" Width="2.25" />
-    <AssociationLine Name="Caixa" Type="ClubeDaLeitura.ConsoleApp.ModuloCaixa.Caixa" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6.5" Y="7.106" />
-        <Point X="6.5" Y="8" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>IAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>ModuloRevista\Revista.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Caixa" />
-    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="10" />
 </ClassDiagram>

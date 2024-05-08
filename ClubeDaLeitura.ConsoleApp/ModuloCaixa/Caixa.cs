@@ -4,36 +4,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
     public class Caixa
     {
-        public Revista[] Revistas
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Revista[] Revistas { get; set; }
 
-        public string Cor
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Cor { get; set; }
 
-        public string Etiqueta
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Etiqueta { get; set; }
 
-        public int TempoEmprestimo
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int TempoEmprestimo { get; set; }
     }
 }
