@@ -1,8 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
-using System.ComponentModel.Design;
-using System.Reflection.Metadata.Ecma335;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {

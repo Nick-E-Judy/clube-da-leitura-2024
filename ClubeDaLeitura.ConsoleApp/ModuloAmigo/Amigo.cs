@@ -25,6 +25,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
         public Multa[] HistoricoMultas { get; set; }
 
+        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        {
+            throw new NotImplementedException();
+        }
+
         public override ArrayList Validar()
         {
             ArrayList erros = new ArrayList();

@@ -21,8 +21,8 @@ namespace ClubeDaLeitura.ConsoleApp
             RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaCaixa telaCaixa = new TelaCaixa();
             TelaRevista telaRevista = new TelaRevista();
-            telaCaixa.tipoEntidade = "caixa";
-            telaRevista.tipoEntidade = "revista";
+            telaCaixa.tipoEntidade = "Caixa";
+            telaRevista.tipoEntidade = "Revista";
             telaCaixa.repositorio = repositorioCaixa;
             telaCaixa.telaRevista = telaRevista;
             telaCaixa.repositorioRevista = repositorioRevista;

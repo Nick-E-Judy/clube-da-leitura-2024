@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 {
@@ -20,7 +21,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
                 "Id", "Nome", "Nome do Responsável", "Telefone", "Endereço", "Multas"
             );
 
-            EntidadeBase[] amigosCadastrados = repositorio.SelecionarTodos();
+            ArrayList amigosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Amigo amigo in amigosCadastrados)
             {
@@ -51,9 +52,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             Console.Write("Digite o endereço do amigo: ");
             string endereco = Console.ReadLine();
 
-            Amigo novoAmigo = new Amigo(nome, nomeResponsavel, telefone, endereco);
+            
 
-            return novoAmigo;
+            return new Amigo(nome, nomeResponsavel, telefone, endereco);
         }
 
         public void CadastrarEntidadeTeste()
