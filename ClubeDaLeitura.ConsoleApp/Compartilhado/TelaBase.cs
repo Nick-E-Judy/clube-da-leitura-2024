@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado
-
 {
     internal abstract class TelaBase
     {
@@ -35,13 +39,13 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         protected void InserirRegistro(EntidadeBase entidade)
         {
-            ArrayList erros = entidade.Validar();
+            //ArrayList erros = entidade.Validar();
 
-            if (erros.Count > 0)
-            {
-                ApresentarErros(erros);
-                return;
-            }
+            //if (erros.Count > 0)
+            //{
+            //    ApresentarErros(erros);
+            //    return;
+            //}
 
             repositorio.Cadastrar(entidade);
 

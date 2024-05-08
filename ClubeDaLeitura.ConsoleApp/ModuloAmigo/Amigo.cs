@@ -1,4 +1,5 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloMulta;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloMulta;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Collections;
 

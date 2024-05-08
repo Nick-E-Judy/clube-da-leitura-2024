@@ -3,7 +3,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
-    public class Emprestimo
+    internal class Emprestimo
     {
         //public Amigo Amigo { get; set; }
 

@@ -1,9 +1,10 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.Compartilhado
+﻿using System.Collections;
 
+namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
-    internal abstract class RepositorioBase
+    internal class RepositorioBase
     {
-        protected EntidadeBase[] registros = new EntidadeBase[100];
+        protected ArrayList registros = new ArrayList();
 
         protected int contadorId = 1;
 
@@ -11,21 +12,21 @@
         {
             novoRegistro.Id = contadorId++;
 
-            RegistrarItem(novoRegistro);
+            registros.Add(novoRegistro);
         }
 
         public bool Editar(int id, EntidadeBase novaEntidade)
         {
             novaEntidade.Id = id;
 
-            for (int i = 0; i < registros.Length; i++)
+            foreach (EntidadeBase entidade in registros)
             {
-                if (registros[i] == null)
+                if (entidade == null)
                     continue;
 
-                else if (registros[i].Id == id)
+                else if (entidade.Id == id)
                 {
-                    registros[i] = novaEntidade;
+                    entidade.AtualizarRegistro(novaEntidade);
 
                     return true;
                 }
@@ -36,14 +37,15 @@
 
         public bool Excluir(int id)
         {
-            for (int i = 0; i < registros.Length; i++)
+            foreach (EntidadeBase entidade in registros)
             {
-                if (registros[i] == null)
+                if (entidade == null)
                     continue;
 
-                else if (registros[i].Id == id)
+                else if (entidade.Id == id)
                 {
-                    registros[i] = null;
+                    registros.Remove(entidade);
+
                     return true;
                 }
             }
@@ -51,17 +53,15 @@
             return false;
         }
 
-        public EntidadeBase[] SelecionarTodos()
+        public ArrayList SelecionarTodos()
         {
             return registros;
         }
 
         public EntidadeBase SelecionarPorId(int id)
         {
-            for (int i = 0; i < registros.Length; i++)
+            foreach (EntidadeBase e in registros)
             {
-                EntidadeBase e = registros[i];
-
                 if (e == null)
                     continue;
 
@@ -74,10 +74,8 @@
 
         public bool Existe(int id)
         {
-            for (int i = 0; i < registros.Length; i++)
+            foreach (EntidadeBase e in registros)
             {
-                EntidadeBase e = registros[i];
-
                 if (e == null)
                     continue;
 
@@ -86,21 +84,6 @@
             }
 
             return false;
-        }
-
-        public virtual void RegistrarItem(EntidadeBase novoRegistro)
-        {
-            for (int i = 0; i < registros.Length; i++)
-            {
-                if (registros[i] != null)
-                    continue;
-
-                else
-                {
-                    registros[i] = novoRegistro;
-                    break;
-                }
-            }
         }
     }
 

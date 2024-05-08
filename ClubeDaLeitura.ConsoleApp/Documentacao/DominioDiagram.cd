@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloCaixa.Caixa">
-    <Position X="5.75" Y="8" Width="2.25" />
+    <Position X="5.75" Y="9" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAACAAAAAAAAAAABAAAAACAAAEAAQAAAAAAAAAAAIA=</HashCode>
       <FileName>ModuloCaixa\Caixa.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -25,7 +25,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAiAAAAAAIAAAAAAAAAAAAAQAAAAAAAAEAEAA=</HashCode>
+      <HashCode>AAAAAAAAiAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAEAA=</HashCode>
       <FileName>ModuloAmigo\Amigo.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -57,7 +57,7 @@
   <Class Name="ClubeDaLeitura.ConsoleApp.ModuloRevista.Revista">
     <Position X="5.75" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <HashCode>IAAAAAAAIAAAAAAAAACAAACAAAAAAQAAAAAAAAAAABA=</HashCode>
       <FileName>ModuloRevista\Revista.cs</FileName>
     </TypeIdentifier>
   </Class>

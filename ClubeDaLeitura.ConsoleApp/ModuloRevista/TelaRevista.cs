@@ -1,12 +1,13 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 {
     internal class TelaRevista : TelaBase
     {
-        public TelaCaixa telaCaixa = null;
+        public TelaCaixa telaCaixa = new TelaCaixa();
 
         public RepositorioCaixa repositorioCaixa = null;
 
@@ -26,7 +27,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
                 "Id", "Titulo", "Número da Edição", "Ano", "Caixa"
             );
 
-            EntidadeBase[] revistasCadastradas = repositorio.SelecionarTodos();
+            ArrayList revistasCadastradas = repositorio.SelecionarTodos();
 
             foreach (Revista revista in revistasCadastradas)
             {
@@ -35,7 +36,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
                 Console.WriteLine(
                     "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25}",
-                    revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa
+                    revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa.Etiqueta
                 );
             }
 
@@ -54,23 +55,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             Console.Write("Digite o ano da revista: ");
             int ano = Convert.ToInt32(Console.ReadLine());
 
-            //telaCaixa.VisualizarRegistros(false);
+            telaCaixa.VisualizarRegistros(false);
 
-            //Console.Write("Digite o ID da caixa: ");
-            //int idCaixa = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digite o ID da caixa: ");
+            int idCaixa = Convert.ToInt32(Console.ReadLine());
 
-            //Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarPorId(idCaixa);
+            Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarPorId(idCaixa);
 
-            Revista novaRevista = new Revista(titulo, numeroEdicao, ano);
+            Revista novaRevista = new Revista(titulo, numeroEdicao, ano, caixaSelecionada);
 
             return novaRevista;
-        }
-
-        public void CadastrarEntidadeTeste()
-        {
-            Revista revista = new Revista("Bobby Tables", 100, 2024);
-
-            repositorio.Cadastrar(revista);
         }
     }
 }

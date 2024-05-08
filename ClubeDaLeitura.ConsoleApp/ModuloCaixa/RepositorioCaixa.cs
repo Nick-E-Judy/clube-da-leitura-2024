@@ -1,6 +1,8 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+
+namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
-    internal class RepositorioCaixa
+    internal class RepositorioCaixa: RepositorioBase
     {
     }
 }
