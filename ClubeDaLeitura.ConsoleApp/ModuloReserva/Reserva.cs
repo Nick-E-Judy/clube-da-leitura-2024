@@ -7,9 +7,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
     {
         private DateTime dataAbertura;
 
-        public Amigo Amigo { get; set; }
+        //public Amigo Amigo { get; set; }
 
-        public Revista Revista { get; set; }
+        //public Revista Revista { get; set; }
 
         public bool Expirada { get; set; }
     }

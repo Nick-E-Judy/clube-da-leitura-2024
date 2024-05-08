@@ -5,9 +5,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
     public class Emprestimo
     {
-        public Amigo Amigo { get; set; }
+        //public Amigo Amigo { get; set; }
 
-        public Revista Revista { get; set; }
+        //public Revista Revista { get; set; }
 
         public bool Concluido { get; set; }
 
