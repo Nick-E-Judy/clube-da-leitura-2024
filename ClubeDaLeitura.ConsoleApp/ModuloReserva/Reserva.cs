@@ -12,7 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
             dataAbertura = DateTime.Now;
             Amigo = amigo;
             Revista = revista;
-            Expirada = Expirada = dataAbertura.AddDays(2); ;
+            Expirada = dataAbertura.AddDays(2);
         }
 
         public DateTime dataAbertura { get; set; }
