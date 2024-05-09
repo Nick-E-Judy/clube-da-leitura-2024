@@ -30,7 +30,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 erros.Add("O campo \"cor\" é obrigatório");
 
             if (string.IsNullOrEmpty(Etiqueta.Trim()))
-                erros.Add("O campo \"Etiqueta\" é obrigatório");
+                erros.Add("O campo \"etiqueta\" é obrigatório");
+
+            if (TempoEmprestimo > 0)
+                erros.Add("O campo \"tempo empréstimo\" é obrigatório");
+
 
             return erros;
         }
