@@ -14,6 +14,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         public TelaRevista telaRevista = null;
         public RepositorioRevista repositorioRevista = null;
 
+        public RepositorioEmprestimo repositorioEmprestimo = null;
+
         public virtual char ApresentarMenu()
         {
             Console.Clear();
@@ -28,7 +30,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine($"2 - Editar {tipoEntidade}");
             Console.WriteLine($"3 - Excluir {tipoEntidade}");
             Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
-            Console.WriteLine($"5 - delvolver livros");
+            Console.WriteLine($"5 - delvolver revistas");
 
             Console.WriteLine("S - Voltar");
 
@@ -70,7 +72,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                     emprestimo.Revista.Titulo,
                     emprestimo.Data.ToShortDateString(),
                     emprestimo.DataDevolucao.ToShortDateString(),
-                    emprestimo.Status()
+                    emprestimo.Status
                 );
             }
 
@@ -78,13 +80,20 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
         }
 
-        public bool DevolverLivro()
+        public void DevolverRevista()
         {
             VisualizarRegistros(false);
-            Console.Write("Digite o ID do empréstimo do livro que deseja devolver: ");
+            Console.Write("Digite o ID do empréstimo da revista que deseja devolver: ");
             int idEmprestimo = Convert.ToInt32(Console.ReadLine());
 
+            Emprestimo emprestimoSelecionado = (Emprestimo)repositorioEmprestimo.SelecionarPorId(idEmprestimo);
 
+            if(emprestimoSelecionado.Id == idEmprestimo)
+            {
+                Revista revistaSelecionada = emprestimoSelecionado.Revista;
+                emprestimoSelecionado.Status = true;
+                VisualizarRegistros(false);
+            }
         }
 
         protected override EntidadeBase ObterRegistro()

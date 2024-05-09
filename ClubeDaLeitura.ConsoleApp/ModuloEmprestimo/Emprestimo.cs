@@ -1,7 +1,9 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
+using System.Numerics;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
@@ -13,17 +15,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Revista = revista;
             Data = DateTime.Now;
             DataDevolucao = Data.AddDays(Revista.Caixa.TempoEmprestimo);
+            Status = false;
         }
 
         public Amigo Amigo { get; set; }
-
         public Revista Revista { get; set; }
-
         public bool Concluido { get; set; }
-
         public DateTime Data { get; set; }
-
         public DateTime DataDevolucao { get; set; }
+        public bool Status { get; set; }
 
         public override void AtualizarRegistro(EntidadeBase novoegistro)
         {
@@ -34,9 +34,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         {
             throw new NotImplementedException();
         }
-        public bool Status()
+        public bool VerificaData()
         {
             return DateTime.Now > DataDevolucao;
         }
+
+        //public bool RetirarRevista(Emprestimo emprestimoSelecionado)
+        //{
+            
+        //}
     }
 }
