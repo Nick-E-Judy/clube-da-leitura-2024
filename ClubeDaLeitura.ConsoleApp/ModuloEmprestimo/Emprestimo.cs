@@ -40,8 +40,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             if (Revista == null)
             {
                 erros.Add("Informe uma revista válida");
-            }
-                
+            }               
 
             return erros;
         }

@@ -45,6 +45,10 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         protected void InserirRegistro(EntidadeBase entidade)
         {
+            if (entidade == null)
+            {
+                return;
+            }
             ArrayList erros = entidade.Validar();
 
             if (erros.Count > 0)

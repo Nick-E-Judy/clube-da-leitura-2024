@@ -145,6 +145,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             Amigo amigoSelecionado = (Amigo)repositorioAmigo.SelecionarPorId(idAmigo);
 
+            if (repositorioEmprestimo.PossuiEmprestimoEmAberto(amigoSelecionado))
+            {
+                Console.Write("O amigo já tem um empréstimo em aberto!");
+                Console.ReadLine();
+                return null;
+            }
+
             telaRevista.VisualizarRegistros(false);
 
             Console.Write("Digite o ID da revista: ");
@@ -155,6 +162,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Emprestimo novoEmprestimo = new Emprestimo(amigoSelecionado, revistaSelecionada);
 
             return novoEmprestimo;
+
         }
     }
 }
