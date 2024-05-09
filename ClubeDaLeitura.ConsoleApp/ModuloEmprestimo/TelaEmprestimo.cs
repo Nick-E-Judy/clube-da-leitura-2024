@@ -74,6 +74,47 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                     emprestimo.DataDevolucao.ToShortDateString(),
                     emprestimo.Status
                 );
+
+            }
+
+            Console.ReadLine();
+            Console.WriteLine();
+        }
+
+        public void VisualizarEmprestimosAbertos(bool exibirTitulo)
+        {
+            if (exibirTitulo)
+            {
+                ApresentarCabecalho();
+
+                Console.WriteLine("Visualizando Empréstimos em Aberto...");
+            }
+
+            Console.WriteLine(
+                "| {0, -10} | {1, -15} | {2, -10} | {3, -20} | {4, -20} | {5, -10}",
+                "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução", "Status"
+            );
+
+            ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
+
+            foreach (Emprestimo emprestimo in emprestimosCadastrados)
+            {
+                if (emprestimo.Status == false)
+                {
+                    if (emprestimo == null)
+                        continue;
+
+                    Console.WriteLine(
+                        "| {0, -10} | {1, -15} | {2, -10} | {3, -20} | {4, -20} | {5, -10}",
+                        emprestimo.Id,
+                        emprestimo.Amigo.Nome,
+                        emprestimo.Revista.Titulo,
+                        emprestimo.Data.ToShortDateString(),
+                        emprestimo.DataDevolucao.ToShortDateString(),
+                        emprestimo.Status
+                    );
+                }
+
             }
 
             Console.ReadLine();
@@ -92,7 +133,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             {
                 Revista revistaSelecionada = emprestimoSelecionado.Revista;
                 emprestimoSelecionado.Status = true;
-                VisualizarRegistros(false);
             }
         }
 

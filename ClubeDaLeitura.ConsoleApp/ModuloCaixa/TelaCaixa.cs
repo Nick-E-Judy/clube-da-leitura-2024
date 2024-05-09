@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
@@ -30,7 +31,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             {
                 Console.WriteLine(
                     "{0, -10} | {1, -20} | {2, -20} | {3, -20}",
-                    caixa.Id, caixa.Cor, caixa.Etiqueta, caixa.Revistas.Length
+                    caixa.Id, caixa.Cor, caixa.Etiqueta, caixa.Revistas.Count
                 );
             }
 
@@ -70,7 +71,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             int tempoEmprestimo = Convert.ToInt32(Console.ReadLine());
 
 
-            return new Caixa(revistas.ToArray(), nome, etiqueta, tempoEmprestimo);
+            return new Caixa(nome, etiqueta, tempoEmprestimo);
         }
+
+        //public void CadastrarEntidadeTeste()
+        //{
+        //    Caixa caixa = new Caixa(null, "rosa", "aaa", 2);
+
+        //    repositorio.Cadastrar(caixa);
+        //}
     }
 }

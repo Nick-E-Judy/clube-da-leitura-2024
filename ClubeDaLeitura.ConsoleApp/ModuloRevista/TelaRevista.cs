@@ -66,5 +66,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
             return novaRevista;
         }
+
+        //public void CadastrarEntidadeTeste()
+        //{
+        //    Revista revista = new Revista("aaaa", 2020, 2000, null);
+
+        //    repositorio.Cadastrar(revista);
+        //}
     }
 }

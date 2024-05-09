@@ -27,6 +27,12 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.WriteLine($"3 - Excluir {tipoEntidade}");
             Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
 
+            if (tipoEntidade == "Empréstimo")
+            {
+                Console.WriteLine($"5 - Devilver revista");
+                Console.WriteLine($"6 - Visualizar {tipoEntidade}s em aberto");
+            }
+
             Console.WriteLine("S - Voltar");
 
             Console.WriteLine();

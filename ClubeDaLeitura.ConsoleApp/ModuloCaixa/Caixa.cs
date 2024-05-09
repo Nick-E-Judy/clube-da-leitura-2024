@@ -6,7 +6,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
     internal class Caixa : EntidadeBase
     {
-        public Revista[] Revistas { get; set; }
+        public ArrayList Revistas { get; set; }
 
         public string Cor { get; set; }
 
@@ -14,12 +14,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 
         public int TempoEmprestimo { get; set; }
 
-        public Caixa(Revista[] revistas, string cor, string etiqueta, int tempoEmprestimo)
+        public int QuantidadeRevistas { get; set; }
+
+        public Caixa(string cor, string etiqueta, int tempoEmprestimo)
         {
-            Revistas = revistas;
             Cor = cor;
             Etiqueta = etiqueta;
             TempoEmprestimo = tempoEmprestimo;
+            Revistas = new ArrayList();
         }
 
         public override ArrayList Validar()
@@ -41,6 +43,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
         public override void AtualizarRegistro(EntidadeBase novoegistro)
         {
             throw new NotImplementedException();
+        }
+
+        public void GuardarRevista(Revista revista)
+        {
+            
+            Revistas.Add(revista);
         }
     }
 }

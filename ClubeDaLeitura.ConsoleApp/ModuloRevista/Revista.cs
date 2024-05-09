@@ -12,6 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             NumeroEdicao = numeroEdicao;
             Ano = ano;
             Caixa = caixa;
+            Caixa.GuardarRevista(this);
         }
 
         public string Titulo { get; set; }

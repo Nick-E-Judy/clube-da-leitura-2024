@@ -18,15 +18,19 @@ namespace ClubeDaLeitura.ConsoleApp
             telaAmigo.CadastrarEntidadeTeste();
 
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+            repositorioCaixa.Cadastrar(new Caixa("Verde", "abc-123", 12));
+
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
+
 
 
             RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaRevista telaRevista = new TelaRevista();
             telaRevista.tipoEntidade = "Revista";
             telaRevista.repositorio = repositorioRevista;
+
 
             telaCaixa.telaRevista = telaRevista;
             telaCaixa.repositorioRevista = repositorioRevista;
@@ -105,6 +109,9 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 else if (operacaoEscolhida == '5')
                     telaEmprestimo.DevolverRevista();
+
+                else if (operacaoEscolhida == '6')
+                    telaEmprestimo.VisualizarEmprestimosAbertos(true);
             }
             Console.ReadLine();
         }
