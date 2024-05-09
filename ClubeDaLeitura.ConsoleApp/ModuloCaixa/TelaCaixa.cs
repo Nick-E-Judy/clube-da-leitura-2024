@@ -69,6 +69,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Console.Write("Digite o tempo de empréstimo: ");
             int tempoEmprestimo = Convert.ToInt32(Console.ReadLine());
 
+
             return new Caixa(revistas.ToArray(), nome, etiqueta, tempoEmprestimo);
         }
     }

@@ -29,22 +29,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
         public override ArrayList Validar()
         {
-            //ArrayList erros = new ArrayList();
+            ArrayList erros = new ArrayList();
 
-            //if (string.IsNullOrEmpty(Titulo.Trim()))
-            //    erros.Add("O campo \"titulo\" é obrigatório");
+            if (string.IsNullOrEmpty(Titulo.Trim()))
+                erros.Add("O campo \"titulo\" é obrigatório");
 
-            //if (NumeroEdicao != null)
-            //    erros.Add("O campo \"número edição\" é obrigatório");
+            if (NumeroEdicao <= 0)
+                erros.Add("Informe um número de edição válido");
 
-            //if (Ano > 0 && Ano != null)
-            //    erros.Add("O campo \"ano\" é obrigatório");
+            if (Ano <= 0)
+                erros.Add("Informe um ano válido");
 
-            //if (Caixa != null)
-            //    erros.Add("O campo \"caixa\" é obrigatório");
+            if (Caixa == null)
+                erros.Add("Informe um ID válido");
 
-            //return erros;
-            return null;
+            return erros;
         }
     }
 }

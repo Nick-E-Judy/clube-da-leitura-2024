@@ -32,9 +32,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             if (string.IsNullOrEmpty(Etiqueta.Trim()))
                 erros.Add("O campo \"etiqueta\" é obrigatório");
 
-            if (TempoEmprestimo > 0)
-                erros.Add("O campo \"tempo empréstimo\" é obrigatório");
-
+            if (TempoEmprestimo <= 0)
+                erros.Add("Informe um tempo de empréstimo válido");
 
             return erros;
         }

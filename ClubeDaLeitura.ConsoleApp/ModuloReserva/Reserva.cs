@@ -30,22 +30,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
 
         public override ArrayList Validar()
         {
-            //ArrayList erros = new ArrayList();
+            ArrayList erros = new ArrayList();
 
-            //if (string.IsNullOrEmpty(Titulo.Trim()))
-            //    erros.Add("O campo \"titulo\" é obrigatório");
+            if (Amigo == null)
+                erros.Add("Informe um número válido");
 
-            //if (NumeroEdicao != null)
-            //    erros.Add("O campo \"número edição\" é obrigatório");
+            if (Revista == null)
+                erros.Add("Informe uma revista válida");
 
-            //if (Ano > 0 && Ano != null)
-            //    erros.Add("O campo \"ano\" é obrigatório");
-
-            //if (Caixa != null)
-            //    erros.Add("O campo \"caixa\" é obrigatório");
-
-            //return erros;
-            return null;
+            return erros;
         }
 
         public bool Status()

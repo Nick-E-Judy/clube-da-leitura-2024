@@ -78,14 +78,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
         }
 
-        public bool DevolverLivro()
-        {
-            VisualizarRegistros(false);
-            Console.Write("Digite o ID do empréstimo do livro que deseja devolver: ");
-            int idEmprestimo = Convert.ToInt32(Console.ReadLine());
+        //public bool DevolverLivro()
+        //{
+        //    VisualizarRegistros(false);
+        //    Console.Write("Digite o ID do empréstimo do livro que deseja devolver: ");
+        //    int idEmprestimo = Convert.ToInt32(Console.ReadLine());
 
 
-        }
+        //}
 
         protected override EntidadeBase ObterRegistro()
         {
