@@ -1,6 +1,8 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+
+namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
 {
-    internal class RepositorioReserva
+    internal class RepositorioReserva : RepositorioBase
     {
     }
 }

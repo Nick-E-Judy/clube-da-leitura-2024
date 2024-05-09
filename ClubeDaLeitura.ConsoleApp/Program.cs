@@ -2,6 +2,7 @@
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloReserva;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -10,25 +11,40 @@ namespace ClubeDaLeitura.ConsoleApp
         static void Main(string[] args)
         {
             RepositorioAmigo repositorioAmigo = new RepositorioAmigo();
-
             TelaAmigo telaAmigo = new TelaAmigo();
             telaAmigo.tipoEntidade = "Amigo";
             telaAmigo.repositorio = repositorioAmigo;
-
             telaAmigo.CadastrarEntidadeTeste();
 
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
-            RepositorioRevista repositorioRevista = new RepositorioRevista();
             TelaCaixa telaCaixa = new TelaCaixa();
-            TelaRevista telaRevista = new TelaRevista();
             telaCaixa.tipoEntidade = "Caixa";
-            telaRevista.tipoEntidade = "Revista";
             telaCaixa.repositorio = repositorioCaixa;
+
+
+            RepositorioRevista repositorioRevista = new RepositorioRevista();
+            TelaRevista telaRevista = new TelaRevista();
+            telaRevista.tipoEntidade = "Revista";
+            telaRevista.repositorio = repositorioRevista;
+
             telaCaixa.telaRevista = telaRevista;
             telaCaixa.repositorioRevista = repositorioRevista;
-            telaRevista.repositorio = repositorioRevista; 
+            
             telaRevista.telaCaixa = telaCaixa;
             telaRevista.repositorioCaixa = repositorioCaixa;
+
+
+            RepositorioReserva repositorioReserva = new RepositorioReserva();
+            TelaReserva telaReserva = new TelaReserva();
+            telaReserva.tipoEntidade = "Reserva";
+            telaReserva.repositorio = repositorioReserva;
+
+            telaReserva.telaAmigo = telaAmigo;
+            telaReserva.repositorioAmigo = repositorioAmigo;
+
+            telaReserva.telaRevista = telaRevista;
+            telaReserva.repositorioRevista = repositorioRevista;
+
             
             while (true)
             {
@@ -48,8 +64,8 @@ namespace ClubeDaLeitura.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '3')
                     tela = telaRevista;
 
-                //else if (opcaoPrincipalEscolhida == '4')
-                //    tela = telaFuncionario;
+                else if (opcaoPrincipalEscolhida == '4')
+                    tela = telaReserva;
 
                 //else if (opcaoPrincipalEscolhida == '5')
                 //    tela = telaFornecedor;
