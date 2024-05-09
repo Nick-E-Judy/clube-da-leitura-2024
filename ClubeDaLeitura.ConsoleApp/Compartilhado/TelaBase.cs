@@ -39,13 +39,13 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         protected void InserirRegistro(EntidadeBase entidade)
         {
-            //ArrayList erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            //if (erros.Count > 0)
-            //{
-            //    ApresentarErros(erros);
-            //    return;
-            //}
+            if (erros.Count > 0)
+            {
+                ApresentarErros(erros);
+                return;
+            }
 
             repositorio.Cadastrar(entidade);
 

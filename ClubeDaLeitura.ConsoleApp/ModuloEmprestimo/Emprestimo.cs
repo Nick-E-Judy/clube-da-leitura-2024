@@ -32,7 +32,18 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
         public override ArrayList Validar()
         {
-            throw new NotImplementedException();
+            ArrayList erros = new ArrayList();
+
+            if (Amigo == null)
+                erros.Add("Informe um número válido");
+
+            if (Revista == null)
+            {
+                erros.Add("Informe uma revista válida");
+            }
+                
+
+            return erros;
         }
         public bool VerificaData()
         {
