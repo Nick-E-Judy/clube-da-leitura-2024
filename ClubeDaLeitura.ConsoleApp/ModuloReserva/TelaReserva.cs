@@ -13,6 +13,32 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
         public TelaRevista telaRevista = null;
         public RepositorioRevista repositorioRevista = null;
 
+        public virtual char ApresentarMenu()
+        {
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");
+            Console.WriteLine($"3 - Excluir {tipoEntidade}");
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"5 - Cadastrar empréstimo de {tipoEntidade}s");
+
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            Console.Write("Escolha uma das opções: ");
+            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
+
+            return operacaoEscolhida;
+        }
+
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)

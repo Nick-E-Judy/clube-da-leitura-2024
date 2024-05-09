@@ -1,6 +1,8 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+
+namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
-    internal class RepositorioEmprestimo
+    internal class RepositorioEmprestimo : RepositorioBase
     {
     }
 }

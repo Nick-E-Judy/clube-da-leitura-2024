@@ -3,6 +3,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloReserva;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -45,6 +46,17 @@ namespace ClubeDaLeitura.ConsoleApp
             telaReserva.telaRevista = telaRevista;
             telaReserva.repositorioRevista = repositorioRevista;
 
+            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
+            telaEmprestimo.tipoEntidade = "Empréstimo";
+            telaEmprestimo.repositorio = repositorioEmprestimo;
+
+            telaEmprestimo.telaAmigo = telaAmigo;
+            telaEmprestimo.repositorioAmigo = repositorioAmigo;
+            
+            telaEmprestimo.telaRevista = telaRevista;
+            telaEmprestimo.repositorioRevista = repositorioRevista;
+
             
             while (true)
             {
@@ -58,7 +70,7 @@ namespace ClubeDaLeitura.ConsoleApp
                 if (opcaoPrincipalEscolhida == '1')
                     tela = telaAmigo;
 
-                if (opcaoPrincipalEscolhida == '2')
+                else if (opcaoPrincipalEscolhida == '2')
                     tela = telaCaixa;
 
                 else if (opcaoPrincipalEscolhida == '3')
@@ -67,8 +79,8 @@ namespace ClubeDaLeitura.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaReserva;
 
-                //else if (opcaoPrincipalEscolhida == '5')
-                //    tela = telaFornecedor;
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaEmprestimo;
 
                 //else if (opcaoPrincipalEscolhida == '6')
                 //    tela = telaRequisicaoEntrada;
@@ -89,6 +101,9 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 else if (operacaoEscolhida == '4')
                     tela.VisualizarRegistros(true);
+
+                //else if (operacaoEscolhida == '5')
+                    //telaEmprestimo.
 
             }
             Console.ReadLine();
