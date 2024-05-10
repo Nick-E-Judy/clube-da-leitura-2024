@@ -6,11 +6,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMulta
 {
     internal class Multa : EntidadeBase
     {
-        public Multa(bool estaPaga)
+        public Multa(bool estaPaga, decimal valor)
         {
             EstaPaga = estaPaga;
+            Valor = valor;
         }
         public bool EstaPaga { get; set; }
+        public decimal Valor {  get; set; }
 
 
 

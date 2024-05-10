@@ -1,5 +1,6 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+using ClubeDaLeitura.ConsoleApp.ModuloMulta;
 using ClubeDaLeitura.ConsoleApp.ModuloReserva;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
@@ -55,7 +56,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             Console.WriteLine(
                 "| {0, -10} | {1, -15} | {2, -10} | {3, -20} | {4, -20} | {5, -10}",
-                "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução" , "Status"
+                "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução" , "Concluido"
             );
 
             ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
@@ -72,7 +73,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                     emprestimo.Revista.Titulo,
                     emprestimo.Data.ToShortDateString(),
                     emprestimo.DataDevolucao.ToShortDateString(),
-                    emprestimo.Status
+                    emprestimo.Concluido
                 );
 
             }
@@ -92,14 +93,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             Console.WriteLine(
                 "| {0, -10} | {1, -15} | {2, -10} | {3, -20} | {4, -20} | {5, -10}",
-                "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução", "Status"
+                "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução", "Concluido"
             );
 
             ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Emprestimo emprestimo in emprestimosCadastrados)
             {
-                if (emprestimo.Status == false)
+                if (emprestimo.Concluido == false)
                 {
                     if (emprestimo == null)
                         continue;
@@ -111,12 +112,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                         emprestimo.Revista.Titulo,
                         emprestimo.Data.ToShortDateString(),
                         emprestimo.DataDevolucao.ToShortDateString(),
-                        emprestimo.Status
+                        emprestimo.Concluido
                     );
-                }
-                if (emprestimo.Amigo.GerarMultas(emprestimo))
-                {
-                    Console.WriteLine($"O amigo {emprestimo.Amigo.Nome} tem uma multa.");
                 }
             }
 
@@ -124,22 +121,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
         }
 
-        public void DevolverRevista()
-        {
-            VisualizarRegistros(false);
-            Console.Write("Digite o ID do empréstimo da revista que deseja devolver: ");
-            int idEmprestimo = Convert.ToInt32(Console.ReadLine());
-
-            Emprestimo emprestimoSelecionado = (Emprestimo)repositorioEmprestimo.SelecionarPorId(idEmprestimo);
-
-            if(emprestimoSelecionado.Id == idEmprestimo )
-            {
-                Revista revistaSelecionada = emprestimoSelecionado.Revista;
-                emprestimoSelecionado.Status = true;
-            }
-        }
-
-        public void VizualizarAmigosComMultas()
+        public void VisualizarAmigosComMultas()
         {
             Console.WriteLine();
 
@@ -166,6 +148,44 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.ReadLine();
             Console.WriteLine();
         }
+        public void DevolverRevista()
+        {
+            VisualizarRegistros(false);
+            Console.Write("Digite o ID do empréstimo da revista que deseja devolver: ");
+            int idEmprestimo = Convert.ToInt32(Console.ReadLine());
+
+            Emprestimo emprestimoSelecionado = (Emprestimo)repositorioEmprestimo.SelecionarPorId(idEmprestimo);
+
+            if (idEmprestimo != emprestimoSelecionado.Id)
+                return;
+
+            emprestimoSelecionado.Concluido = true;
+            emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
+        }
+
+        public void QuitarMultas()
+        {
+            VisualizarAmigosComMultas();
+
+            Console.Write("Qual o Id do amigo que deseja quitar a multa? ");
+            int amigoQueDesejaQuitarAMulta = Convert.ToInt32(Console.ReadLine());
+
+            Amigo a = (Amigo)repositorio.SelecionarPorId(amigoQueDesejaQuitarAMulta);
+
+            foreach (var multa in a.Multas)
+            {
+                Multa m = (Multa)multa;
+
+                if (!m.EstaPaga)
+                {
+                    m.EstaPaga = true;
+                    ExibirMensagem("Multa quitada com sucesso!", ConsoleColor.Green);
+                }
+            }
+
+            Console.ReadLine();
+
+        }
 
         protected override EntidadeBase ObterRegistro()
         {
@@ -182,6 +202,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 Console.ReadLine();
                 return null;
             }
+
 
             telaRevista.VisualizarRegistros(false);
 

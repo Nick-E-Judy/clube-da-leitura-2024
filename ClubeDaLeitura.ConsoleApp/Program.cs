@@ -63,8 +63,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
 
             while (true)
-            {
-                
+            {                
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
 
                 if (opcaoPrincipalEscolhida == 'S' || opcaoPrincipalEscolhida == 's')
@@ -114,7 +113,10 @@ namespace ClubeDaLeitura.ConsoleApp
                     telaEmprestimo.VisualizarEmprestimosAbertos(true);
 
                 else if (tela == telaEmprestimo && operacaoEscolhida == '7')
-                    telaEmprestimo.VizualizarAmigosComMultas();
+                    telaEmprestimo.VisualizarAmigosComMultas();
+
+                else if (operacaoEscolhida == '8')
+                    telaEmprestimo.QuitarMultas();
             }
             Console.ReadLine();
         }

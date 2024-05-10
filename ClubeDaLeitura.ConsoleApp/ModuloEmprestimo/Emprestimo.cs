@@ -15,15 +15,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Revista = revista;
             Data = DateTime.Now;
             DataDevolucao = Data.AddDays(Revista.Caixa.TempoEmprestimo);
-            Status = false;
+            Concluido = false;
         }
 
         public Amigo Amigo { get; set; }
         public Revista Revista { get; set; }
-        public bool Concluido { get; set; }
         public DateTime Data { get; set; }
         public DateTime DataDevolucao { get; set; }
-        public bool Status { get; set; }
+        public bool Concluido { get; set; }
 
         public override void AtualizarRegistro(EntidadeBase novoegistro)
         {

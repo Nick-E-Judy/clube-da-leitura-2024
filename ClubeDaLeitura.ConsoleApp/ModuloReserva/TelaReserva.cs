@@ -52,7 +52,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
 
             Console.WriteLine(
                 "| {0, -10} | {1, -15} | {2, -10} | {3, -20} | {4, -20}",
-                "Id", "Data da Reserva", "Status", "Amigo", "Revista"
+                "Id", "Data da Reserva", "Concluido", "Amigo", "Revista"
             );
 
             ArrayList reservasCadastradas = repositorio.SelecionarTodos();

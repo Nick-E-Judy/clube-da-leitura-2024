@@ -24,19 +24,19 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
         public string Endereco { get; set; }
 
-        public bool Multa { get; set; }
+        public ArrayList Multas { get; set; } = new ArrayList();
 
-        public bool GerarMultas(Emprestimo emprestimos)
+        public void GerarMultas(Emprestimo emprestimos)
         {
-            if (emprestimos.DataDevolucao < DateTime.Now)
-            {
-                return Multa = true;
-            }
-            else
-            {
-                return Multa = false;
-            }
+            DateTime dataHoje = DateTime.Now;
+
+            TimeSpan diferenca = dataHoje - emprestimos.DataDevolucao;
+
+            decimal valor = diferenca.Days * 5;
+
+            Multas.Add(new Multa(false, valor));
         }
+
         public override void AtualizarRegistro(EntidadeBase novoegistro)
         {
             throw new NotImplementedException();
