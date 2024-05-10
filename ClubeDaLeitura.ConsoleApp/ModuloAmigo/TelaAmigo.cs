@@ -24,17 +24,23 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
             ArrayList amigosCadastrados = repositorio.SelecionarTodos();
 
-            foreach (Amigo amigo in amigosCadastrados)
+            if (amigosCadastrados.Count == 0)
             {
-                if (amigo == null)
-                    continue;
-
-                Console.WriteLine(
-                    "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25} |",
-                    amigo.Id, amigo.Nome, amigo.NomeResponsavel, amigo.Telefone, amigo.Endereco
-                );
+                ExibirMensagem("Não há amigos cadastrados!", ConsoleColor.Red);
             }
+            else
+            {
+                foreach (Amigo amigo in amigosCadastrados)
+                {
+                    if (amigo == null)
+                        continue;
 
+                    Console.WriteLine(
+                        "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25} |",
+                        amigo.Id, amigo.Nome, amigo.NomeResponsavel, amigo.Telefone, amigo.Endereco
+                    );
+                }
+            }
             Console.ReadLine();
             Console.WriteLine();
         }

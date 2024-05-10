@@ -29,15 +29,24 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
             ArrayList revistasCadastradas = repositorio.SelecionarTodos();
 
-            foreach (Revista revista in revistasCadastradas)
-            {
-                if (revista == null)
-                    continue;
 
-                Console.WriteLine(
-                    "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25}",
-                    revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa.Etiqueta
-                );
+            if (revistasCadastradas.Count == 0)
+            {
+                ExibirMensagem("Não há revistas cadastradas!", ConsoleColor.Red);
+            }
+            else
+            {
+
+                foreach (Revista revista in revistasCadastradas)
+                {
+                    if (revista == null)
+                        continue;
+
+                    Console.WriteLine(
+                        "| {0, -10} | {1, -20} | {2, -25} | {3, -18} | {4, -25}",
+                        revista.Id, revista.Titulo, revista.NumeroEdicao, revista.Ano, revista.Caixa.Etiqueta
+                    );
+                }
             }
 
             Console.ReadLine();
@@ -67,11 +76,5 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             return novaRevista;
         }
 
-        //public void CadastrarEntidadeTeste()
-        //{
-        //    Revista revista = new Revista("aaaa", 2020, 2000, null);
-
-        //    repositorio.Cadastrar(revista);
-        //}
     }
 }

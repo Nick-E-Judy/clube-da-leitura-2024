@@ -14,17 +14,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMulta
         public bool EstaPaga { get; set; }
         public decimal Valor {  get; set; }
 
-
-
-        public Multa GerarMultas(Emprestimo emprestimos)
-        {
-            if (emprestimos.DataDevolucao < DateTime.Now)
-            {
-                EstaPaga = false;
-            }
-            return null;
-        }
-
         public override void AtualizarRegistro(EntidadeBase novoegistro)
         {
             throw new NotImplementedException();

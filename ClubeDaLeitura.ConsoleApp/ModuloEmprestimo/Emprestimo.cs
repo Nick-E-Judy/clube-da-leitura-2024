@@ -48,9 +48,5 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             return DateTime.Now > DataDevolucao;
         }
 
-        //public bool RetirarRevista(Emprestimo emprestimoSelecionado)
-        //{
-            
-        //}
     }
 }

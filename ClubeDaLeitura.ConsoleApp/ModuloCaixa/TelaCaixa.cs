@@ -27,12 +27,20 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 
             ArrayList caixasCadastradas = repositorio.SelecionarTodos();
 
-            foreach (Caixa caixa in caixasCadastradas)
+
+            if (caixasCadastradas.Count == 0)
             {
-                Console.WriteLine(
-                    "{0, -10} | {1, -20} | {2, -20} | {3, -20}",
-                    caixa.Id, caixa.Cor, caixa.Etiqueta, caixa.Revistas.Count
-                );
+                ExibirMensagem("Não há caixas cadastradas!", ConsoleColor.Red);
+            }
+            else
+            {
+                foreach (Caixa caixa in caixasCadastradas)
+                {
+                    Console.WriteLine(
+                        "{0, -10} | {1, -20} | {2, -20} | {3, -20}",
+                        caixa.Id, caixa.Cor, caixa.Etiqueta, caixa.Revistas.Count
+                    );
+                }
             }
 
             Console.ReadLine();
@@ -73,12 +81,5 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 
             return new Caixa(nome, etiqueta, tempoEmprestimo);
         }
-
-        //public void CadastrarEntidadeTeste()
-        //{
-        //    Caixa caixa = new Caixa(null, "rosa", "aaa", 2);
-
-        //    repositorio.Cadastrar(caixa);
-        //}
     }
 }

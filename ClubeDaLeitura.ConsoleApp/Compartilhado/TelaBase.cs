@@ -35,6 +35,11 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
                 Console.WriteLine($"8 - Quitar multas");
             }
 
+            if (tipoEntidade == "Reserva")
+            {
+                Console.WriteLine($"9 - Cadastrar Empréstimos");
+            }
+
             Console.WriteLine("S - Voltar");
 
             Console.WriteLine();
@@ -61,7 +66,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             repositorio.Cadastrar(entidade);
 
-            ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
+            ExibirMensagem($"O(A) {tipoEntidade} foi cadastrado(a) com sucesso!", ConsoleColor.Green);
         }
 
         public virtual void Registrar()
@@ -87,12 +92,12 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             VisualizarRegistros(false);
 
-            Console.Write($"Digite o ID do {tipoEntidade} que deseja editar: ");
+            Console.Write($"Digite o ID do(a) {tipoEntidade} que deseja editar: ");
             int idEntidadeEscolhida = Convert.ToInt32(Console.ReadLine());
 
             if (!repositorio.Existe(idEntidadeEscolhida))
             {
-                ExibirMensagem($"O {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
+                ExibirMensagem($"O(A) {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
                 return;
             }
 
@@ -116,7 +121,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
                 return;
             }
 
-            ExibirMensagem($"O {tipoEntidade} foi editado com sucesso!", ConsoleColor.Green);
+            ExibirMensagem($"O(A) {tipoEntidade} foi editado com sucesso!", ConsoleColor.Green);
         }
 
         public void Excluir()
@@ -129,12 +134,12 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             VisualizarRegistros(false);
 
-            Console.Write($"Digite o ID do {tipoEntidade} que deseja excluir: ");
+            Console.Write($"Digite o ID do(a) {tipoEntidade} que deseja excluir: ");
             int idRegistroEscolhido = Convert.ToInt32(Console.ReadLine());
 
             if (!repositorio.Existe(idRegistroEscolhido))
             {
-                ExibirMensagem($"O {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
+                ExibirMensagem($"O(A) {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
                 return;
             }
 
@@ -142,11 +147,11 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (!conseguiuExcluir)
             {
-                ExibirMensagem($"Houve um erro durante a exclusão do {tipoEntidade}", ConsoleColor.Red);
+                ExibirMensagem($"Houve um erro durante a exclusão do(a) {tipoEntidade}", ConsoleColor.Red);
                 return;
             }
 
-            ExibirMensagem($"O {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
+            ExibirMensagem($"O(A) {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
         }
 
         public abstract void VisualizarRegistros(bool exibirTitulo);
@@ -167,7 +172,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|       Controle de Medicamentos       |");
+            Console.WriteLine("|          CLUBE DA LITERATURA          |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();

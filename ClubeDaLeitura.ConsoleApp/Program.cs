@@ -86,9 +86,6 @@ namespace ClubeDaLeitura.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaEmprestimo;
 
-                //else if (opcaoPrincipalEscolhida == '6')
-                //    tela = telaRequisicaoEntrada;
-
                 char operacaoEscolhida = tela.ApresentarMenu();
 
                 if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
@@ -107,16 +104,19 @@ namespace ClubeDaLeitura.ConsoleApp
                     tela.VisualizarRegistros(true);
 
                 else if (tela == telaEmprestimo && operacaoEscolhida == '5')
-                    telaEmprestimo.DevolverRevista();
+                    telaEmprestimo.DevolverRevista(true);
 
                 else if (tela == telaEmprestimo && operacaoEscolhida == '6')
                     telaEmprestimo.VisualizarEmprestimosAbertos(true);
 
                 else if (tela == telaEmprestimo && operacaoEscolhida == '7')
-                    telaEmprestimo.VisualizarAmigosComMultas();
+                    telaEmprestimo.VisualizarAmigosComMultas(true);
 
                 else if (operacaoEscolhida == '8')
                     telaEmprestimo.QuitarMultas();
+
+                else if (operacaoEscolhida == '9')
+                    telaEmprestimo.Registrar();
             }
             Console.ReadLine();
         }
