@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 using System.Collections;
 
@@ -23,9 +24,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
 
         public Caixa Caixa { get; set; }
 
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Revista novasInformacoes = (Revista)novoRegistro;
+
+            this.Titulo = novasInformacoes.Titulo;
+            this.NumeroEdicao = novasInformacoes.NumeroEdicao;
+            this.Ano = novasInformacoes.Ano;
+            this.Caixa = novasInformacoes.Caixa;
         }
 
         public override List<String> Validar()

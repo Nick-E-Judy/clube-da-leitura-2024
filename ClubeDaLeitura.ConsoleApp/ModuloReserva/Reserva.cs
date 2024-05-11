@@ -23,9 +23,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
 
         public DateTime Expirada { get; set; }
 
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Reserva novasInformacoes = (Reserva)novoRegistro;
+
+            this.Amigo = novasInformacoes.Amigo;
+            this.Revista = novasInformacoes.Revista;
         }
 
         public override List<String> Validar()

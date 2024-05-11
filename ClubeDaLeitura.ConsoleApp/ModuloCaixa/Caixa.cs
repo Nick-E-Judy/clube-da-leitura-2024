@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
@@ -40,9 +41,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             return erros;
         }
 
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Caixa novasInformacoes = (Caixa)novoRegistro;
+
+            this.Cor = novasInformacoes.Cor;
+            this.Etiqueta = novasInformacoes.Etiqueta;
+            this.TempoEmprestimo = novasInformacoes.TempoEmprestimo;
         }
 
         public void GuardarRevista(Revista revista)

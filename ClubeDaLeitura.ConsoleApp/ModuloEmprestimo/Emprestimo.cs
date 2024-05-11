@@ -24,9 +24,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         public DateTime DataDevolucao { get; set; }
         public bool Concluido { get; set; }
 
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Emprestimo novasInformacoes = (Emprestimo)novoRegistro;
+
+            this.Amigo = novasInformacoes.Amigo;
+            this.Revista = novasInformacoes.Revista;
         }
 
         public override List<String> Validar()

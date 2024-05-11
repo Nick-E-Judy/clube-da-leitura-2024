@@ -14,7 +14,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMulta
         public bool EstaPaga { get; set; }
         public decimal Valor {  get; set; }
 
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             throw new NotImplementedException();
         }

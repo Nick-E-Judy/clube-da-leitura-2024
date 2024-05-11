@@ -41,9 +41,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
        
         }
 
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Amigo novasInformacoes = (Amigo)novoRegistro;
+
+            this.Nome = novasInformacoes.Nome;
+            this.NomeResponsavel = novasInformacoes.NomeResponsavel;
+            this.Telefone = novasInformacoes.Telefone;
+            this.Endereco = novasInformacoes.Endereco;
         }
 
         public override List<String> Validar()
