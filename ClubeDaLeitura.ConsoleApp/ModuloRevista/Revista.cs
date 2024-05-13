@@ -28,9 +28,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
             throw new NotImplementedException();
         }
 
-        public override ArrayList Validar()
+        public override List<String> Validar()
         {
-            ArrayList erros = new ArrayList();
+            List<String> erros = [];
 
             if (string.IsNullOrEmpty(Titulo.Trim()))
                 erros.Add("O campo \"titulo\" é obrigatório");

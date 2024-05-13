@@ -22,7 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
                 "Id", "Nome", "Nome do Responsável", "Telefone", "Endereço"
             );
 
-            ArrayList amigosCadastrados = repositorio.SelecionarTodos();
+            List<EntidadeBase> amigosCadastrados = repositorio.SelecionarTodos();
 
             if (amigosCadastrados.Count == 0)
             {

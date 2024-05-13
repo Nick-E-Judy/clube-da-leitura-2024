@@ -19,7 +19,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMulta
             throw new NotImplementedException();
         }
 
-        public override ArrayList Validar()
+        public override List<String> Validar()
         {
             throw new NotImplementedException();
         }

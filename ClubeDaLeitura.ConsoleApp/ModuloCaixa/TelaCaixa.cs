@@ -25,8 +25,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
                 "Id", "Cor", "Etiqueta", "Qtd de Revistas"
             );
 
-            ArrayList caixasCadastradas = repositorio.SelecionarTodos();
-
+            List<EntidadeBase> caixasCadastradas = repositorio.SelecionarTodos();
 
             if (caixasCadastradas.Count == 0)
             {

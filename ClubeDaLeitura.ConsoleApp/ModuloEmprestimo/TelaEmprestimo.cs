@@ -33,7 +33,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução", "Concluido"
             );
 
-            ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
+            List<EntidadeBase> emprestimosCadastrados = repositorio.SelecionarTodos();
 
             if (emprestimosCadastrados.Count == 0)
             {
@@ -76,7 +76,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 "Id", "Amigo", "Revista", "Data de empréstimo", "Data de devolução", "Concluido"
             );
 
-            ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
+            List<EntidadeBase> emprestimosCadastrados = repositorio.SelecionarTodos();
 
             if (emprestimosCadastrados.Count == 0)
             {
@@ -122,7 +122,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 "Id do Empréstimo", "Id do amigo", "Nome do amigo", "Data de devolução prevista", "Data atual"
             );
 
-            ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
+            List<EntidadeBase> emprestimosCadastrados = repositorio.SelecionarTodos();
             if (emprestimosCadastrados.Count == 0)
             {
                 ExibirMensagem("Não há empréstimos com multas em aberto!", ConsoleColor.Red);
@@ -171,11 +171,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             if (idEmprestimo != emprestimoSelecionado.Id)
                 return;
-
+                    
             emprestimoSelecionado.Concluido = true;
 
-         
-                emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
+            emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
             
             
 

@@ -28,9 +28,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
             throw new NotImplementedException();
         }
 
-        public override ArrayList Validar()
+        public override List<String> Validar()
         {
-            ArrayList erros = new ArrayList();
+            List<String> erros = [];
 
             if (Amigo == null)
                 erros.Add("Informe um número válido");

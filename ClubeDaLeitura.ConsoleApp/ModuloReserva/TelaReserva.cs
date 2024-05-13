@@ -29,7 +29,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReserva
                 "Id", "Data da Reserva", "Concluido", "Amigo", "Revista"
             );
 
-            ArrayList reservasCadastradas = repositorio.SelecionarTodos();
+            List<EntidadeBase> reservasCadastradas = repositorio.SelecionarTodos();
 
 
             if (reservasCadastradas.Count == 0)
