@@ -1,6 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloMulta;
-using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Collections;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 
@@ -28,7 +27,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
         public void GerarMultas(Emprestimo emprestimos)
         {
-            if (emprestimos.DataDevolucao < DateTime.Now)
+            if (emprestimos.DataDevolucao < DateTime.Now )
             {
                 DateTime dataHoje = DateTime.Now;
 
@@ -38,7 +37,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
                 Multas.Add(new Multa(false, valor));
             }
-          
+       
         }
 
         public override void AtualizarRegistro(EntidadeBase novoegistro)

@@ -1,12 +1,12 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloMulta;
-using ClubeDaLeitura.ConsoleApp.ModuloReserva;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
+   
     internal class TelaEmprestimo : TelaBase
     {
         public TelaAmigo telaAmigo = null;
@@ -118,8 +118,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
 
             Console.WriteLine(
-                "| {0, -20} | {1, -15} | {2, -20} | {3, -30} | {4, -15} |",
-                "Id do Empréstimo", "Id do amigo", "Nome do amigo", "Data de devolução prevista", "Data atual"
+                "| {0, -20} | {1, -15} | {2, -20} | {3, -30} |",
+                "Id do amigo", "Nome do amigo", "Data de devolução prevista", "Data atual"
             );
 
             ArrayList emprestimosCadastrados = repositorio.SelecionarTodos();
@@ -135,14 +135,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                     foreach (var multa in emprestimo.Amigo.Multas)
                     {
                         Multa multa1 = (Multa)multa;
-                        if (!multa1.EstaPaga)
+                        if (multa1.EstaPaga == false && emprestimo.Concluido == false)
                         {
                             if (emprestimo == null)
                                 continue;
 
                             Console.WriteLine(
-                             "| {0, -20} | {1, -15} | {2, -20} | {3, -30} | {4, -15} |",
-                             emprestimo.Id, emprestimo.Amigo.Id, emprestimo.Amigo.Nome, emprestimo.DataDevolucao.ToShortDateString(), DateTime.Now.ToShortDateString()
+                             "| {0, -20} | {1, -15} | {2, -20} | {3, -30}|",
+                             emprestimo.Amigo.Id, emprestimo.Amigo.Nome, emprestimo.DataDevolucao.ToShortDateString(), DateTime.Now.ToShortDateString()
                          );
                         }
                     }
@@ -172,12 +172,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             if (idEmprestimo != emprestimoSelecionado.Id)
                 return;
 
+            emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
             emprestimoSelecionado.Concluido = true;
-
-         
-                emprestimoSelecionado.Amigo.GerarMultas(emprestimoSelecionado);
-            
-            
 
         }
 
@@ -197,12 +193,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
                 if (!multa1.EstaPaga)
                 {
                     multa1.EstaPaga = true;
+                 
                     ExibirMensagem("Multa quitada com sucesso!", ConsoleColor.Green);
                 }
             }
 
             Console.ReadLine();
-
         }
 
         protected override EntidadeBase ObterRegistro()
