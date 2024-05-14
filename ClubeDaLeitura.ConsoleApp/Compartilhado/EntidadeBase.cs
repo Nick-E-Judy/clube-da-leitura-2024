@@ -6,7 +6,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
     {
         public int Id { get; set; }
 
-        public abstract ArrayList Validar();
+        public abstract List<String> Validar();
 
         public abstract void AtualizarRegistro(EntidadeBase novoegistro);
     }

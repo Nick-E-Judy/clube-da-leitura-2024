@@ -6,7 +6,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
 {
     internal class Caixa : EntidadeBase
     {
-        public ArrayList Revistas { get; set; }
+        public List<Revista> Revistas { get; set; }
 
         public string Cor { get; set; }
 
@@ -21,12 +21,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa
             Cor = cor;
             Etiqueta = etiqueta;
             TempoEmprestimo = tempoEmprestimo;
-            Revistas = new ArrayList();
+            Revistas = [];
         }
 
-        public override ArrayList Validar()
+        public override List<String> Validar()
         {
-            ArrayList erros = new ArrayList();
+            List<String> erros = [];
 
             if (string.IsNullOrEmpty(Cor.Trim()))
                 erros.Add("O campo \"cor\" é obrigatório");

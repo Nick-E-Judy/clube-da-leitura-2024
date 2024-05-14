@@ -4,7 +4,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
     internal class RepositorioBase
     {
-        protected ArrayList registros = new ArrayList();
+        protected List<EntidadeBase> registros = [];
 
         protected int contadorId = 1;
 
@@ -53,7 +53,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             return false;
         }
 
-        public ArrayList SelecionarTodos()
+        public List<EntidadeBase> SelecionarTodos()
         {
             return registros;
         }

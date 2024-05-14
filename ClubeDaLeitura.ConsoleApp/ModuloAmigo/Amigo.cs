@@ -35,7 +35,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
 
                 decimal valor = diferenca.Days * 5;
 
-                Multas.Add(new Multa(false, valor));
+                if(emprestimos.Concluido)
+                    Multas.Add(new Multa(false, valor));
             }
        
         }
@@ -45,9 +46,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloAmigo
             throw new NotImplementedException();
         }
 
-        public override ArrayList Validar()
+        public override List<String> Validar()
         {
-            ArrayList erros = new ArrayList();
+            List<String> erros = [];
 
             if (string.IsNullOrEmpty(Nome.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");

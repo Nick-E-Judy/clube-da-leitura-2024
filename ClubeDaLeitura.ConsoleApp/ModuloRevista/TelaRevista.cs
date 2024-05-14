@@ -27,7 +27,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevista
                 "Id", "Titulo", "Número da Edição", "Ano", "Caixa"
             );
 
-            ArrayList revistasCadastradas = repositorio.SelecionarTodos();
+            List<EntidadeBase> revistasCadastradas = repositorio.SelecionarTodos();
 
 
             if (revistasCadastradas.Count == 0)

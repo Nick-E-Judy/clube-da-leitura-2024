@@ -14,11 +14,11 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             Console.WriteLine();
 
-            Console.WriteLine("1 - Cadastro de Amigos");
-            Console.WriteLine("2 - Cadastro de Caixas");
-            Console.WriteLine("3 - Cadastro de Revistas");
-            Console.WriteLine("4 - Cadastro de Reservas");
-            Console.WriteLine("5 - Cadastro de Empréstimos");
+            Console.WriteLine("1 - Controle de Amigos");
+            Console.WriteLine("2 - Controle de Caixas");
+            Console.WriteLine("3 - Controle de Revistas");
+            Console.WriteLine("4 - Controle de Reservas");
+            Console.WriteLine("5 - Controle de Empréstimos");
 
             Console.WriteLine("S - Sair");
 

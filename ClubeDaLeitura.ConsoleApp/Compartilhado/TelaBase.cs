@@ -56,7 +56,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             {
                 return;
             }
-            ArrayList erros = entidade.Validar();
+            List<String> erros = entidade.Validar();
 
             if (erros.Count > 0)
             {
@@ -105,7 +105,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             EntidadeBase entidade = ObterRegistro();
 
-            ArrayList erros = entidade.Validar();
+            List<String> erros = entidade.Validar();
 
             if (erros.Count > 0)
             {
@@ -156,7 +156,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         public abstract void VisualizarRegistros(bool exibirTitulo);
 
-        protected void ApresentarErros(ArrayList erros)
+        protected void ApresentarErros(List<String> erros)
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
